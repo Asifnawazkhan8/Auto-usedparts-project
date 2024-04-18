@@ -1,0 +1,131 @@
+
+
+.form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 50px;
+    background-color: #fff;
+    border-radius: 5px solid #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.form-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.form-container button {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form-container button.cancel {
+    background-color: #000;
+}
+
+.button-container {
+    text-align: right;
+}
+
+@media (max-width: 600px) {
+    .form-container {
+        max-width: 100%;
+    }
+}
+h2{
+color: #ea1c26;    
+}
+#textArea{
+    width:700px;
+    height: 250px;
+}
+.input_style{
+    margin-left: 10px;
+outline: none;
+border: none;
+background-color: #efefef;
+  }
+
+  .autocomplete {
+position: relative;
+display: inline-block;
+}
+
+input {
+border: 1px solid transparent;
+background-color: #f1f1f1;
+padding: 5px;
+font-size: 16px;
+}
+
+.autocomplete-items {
+position: absolute;
+border: 1px solid #d4d4d4;
+border-bottom: none;
+border-top: none;
+z-index: 99;
+/*position the autocomplete items to be the same width as the container:*/
+top: 100%;
+left: 0;
+right: 0;
+}
+
+.autocomplete-items div {
+padding: 10px;
+cursor: pointer;
+background-color: #fff; 
+border-bottom: 1px solid #d4d4d4; 
+font-size: 17px;
+}
+
+/*when hovering an item:*/
+.autocomplete-items div:hover, .autocomplete-items div:hover a {
+background-color: #ea1c26; 
+color: #ffffff; 
+}
+
+
+/*when navigating through the items using the arrow keys:*/
+.autocomplete-active {
+background-color: #ea1c26 !important; 
+color: #ffffff; 
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"], input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.button-container {
+    text-align: center;
+}
+
+button {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

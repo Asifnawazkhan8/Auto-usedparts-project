@@ -1,0 +1,284 @@
+<section id="footer" class="clearfix">
+    <div class="container">
+     <div class="row">
+      <div class="footer_1 clearfix">
+       <div class="col-sm-3">
+        <div class="footer_1l clearfix">
+          <h2 class="mgt"><a href="#"><span class="col_1">Qasr Al</span> Hasna</a></h2>
+          <div class="footer_1li cleafix">
+           <span class="col_1"><i class="fa fa-headphones"></i></span>
+           <h5>Customer Support</h5>
+           <h4><a href="#">+971 50 797 5568</a></h4>
+          </div>
+        </div>
+       </div>
+       <div class="col-sm-5">
+        <div class="footer_1m clearfix">
+         <h4>Find Us on Social Media to get updates</h4><br>
+         <ul class="social-network social-circle">
+                           <li><a href="#" class="icoRss" title="Rss"><i class="fa fa-phone"></i></a></li>
+                           <li><a href="https://www.facebook.com/qasralhasna.ae" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+                           <li><a href="https://www.twitter.com" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
+                           <li><a href="#" class="icoGoogle" title="Map"><i class="fa fa-map"></i></a></li>
+                           <li><a href="https://www.linkedin.com" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a></li>
+                           <li>
+                            <a href="https://www.instagram.com/qasralhasna.ae/" class="icoInstagram" title="Instagram">
+                              <i class="fa fa-instagram"></i>
+                            </a>
+                          </li>
+                       </ul>
+        </div>
+       </div>
+       <div class="col-sm-4">
+        <div class="footer_1r clearfix">
+         <h4>Information</h4>
+         <ul>
+          <li><a href="/about-us">About Us</a></li>
+          <li><a href="/contact-us">Contact Us </a></li>
+          <li><a href="/contact-us">Branches </a></li>
+         </ul>
+        </div>
+       </div>
+      </div>
+     
+    </div>
+     </div>
+    </div>
+    <div style="background: #ea1c26; width: 100%;">
+      <div class="footer_2 text-center clearfix">
+       <div class="col-sm-11">
+        <p style="font-size: 24px; color: white;" class="mgt">All Rights Reserved ©2022-23  </p>
+       </div>
+      </div>
+   </section>
+   <!-- Your existing HTML content -->
+
+<script>
+  function addNewDiv() {
+    // Create a new <div> element
+    const newDiv = document.createElement("div");
+
+    // Customize the new <div> element with your desired content or attributes
+    newDiv.textContent = "This is the new div inside the existing div for small screens.";
+
+    // Append the new <div> as a child of the existing <div>
+    const existingDiv = document.getElementById("existingDiv");
+    existingDiv.appendChild(newDiv);
+  }
+
+  function removeNewDiv() {
+    // Remove the newly added <div> element, if it exists
+    const existingDiv = document.getElementById("existingDiv");
+    const newDiv = existingDiv.querySelector(".new-div");
+    if (newDiv) {
+      existingDiv.removeChild(newDiv);
+    }
+  }
+
+  function handleScreenSizeChange(mediaQuery) {
+    if (mediaQuery.matches) {
+      addNewDiv();
+    } else {
+      removeNewDiv();
+    }
+  }
+
+  const mediaQuery767 = window.matchMedia("(max-width: 767px)");
+  handleScreenSizeChange(mediaQuery767); // Initially check the screen size on page load
+  mediaQuery767.addListener(handleScreenSizeChange); // Listen for changes in screen size
+
+</script>
+<script>
+      function autocompleteOne(inp, arr) {
+ 
+  var currentFocus;
+
+  inp.addEventListener("input", function(e) {
+      var a, b, i, val = this.value;
+    
+      closeAllLists();
+      if (!val) { return false;}
+      currentFocus = -1;
+     
+      a = document.createElement("DIV");
+      a.style.maxHeight = '400px';
+      a.style.overflow = 'auto';
+      a.setAttribute("id", this.id + "autocomplete-list");
+      a.setAttribute("class", "autocomplete-items");
+   
+      this.parentNode.appendChild(a);
+      
+      for (i = 0; i < arr.length; i++) {
+        
+        if (arr[i].name.toUpperCase().includes(val.toUpperCase())) {
+        
+          b = document.createElement("div");
+          
+          var startIndex = arr[i].name.toUpperCase().indexOf(val.toUpperCase());
+          var matchedText = arr[i].name.substr(startIndex, val.length);
+          var remainingText = arr[i].name.substr(startIndex + val.length);
+          b.innerHTML =`<a href=/product-details/${arr[i].alias}>` + arr[i].name.replace(matchedText, "<strong>" + matchedText + "</strong>") + "<input type='hidden' value='" + arr[i].name + "'>";
+         
+          b.innerHTML += "<input type='hidden' value='" + arr[i].name + "'></a>";
+        
+          b.addEventListener("click", function(e) {
+             
+              inp.value = this.getElementsByTagName("input")[0].value;
+             
+              closeAllLists();
+          });
+          a.appendChild(b);
+        }
+      }
+  });
+  /*execute a function presses a key on the keyboard:*/
+  inp.addEventListener("keydown", function(e) {
+      var x = document.getElementById(this.id + "autocomplete-list");
+      if (x) x = x.getElementsByTagName("div");
+      if (e.keyCode == 40) {
+        /*If the arrow DOWN key is pressed,
+        increase the currentFocus variable:*/
+        currentFocus++;
+        /*and and make the current item more visible:*/
+        addActive(x);
+      } else if (e.keyCode == 38) { //up
+        /*If the arrow UP key is pressed,
+        decrease the currentFocus variable:*/
+        currentFocus--;
+        /*and and make the current item more visible:*/
+        addActive(x);
+      } else if (e.keyCode == 13) {
+        /*If the ENTER key is pressed, prevent the form from being submitted,*/
+        e.preventDefault();
+        if (currentFocus > -1) {
+          /*and simulate a click on the "active" item:*/
+          if (x) x[currentFocus].click();
+        }
+      }
+  });
+  function addActive(x) {
+    /*a function to classify an item as "active":*/
+    if (!x) return false;
+    /*start by removing the "active" class on all items:*/
+    removeActive(x);
+    if (currentFocus >= x.length) currentFocus = 0;
+    if (currentFocus < 0) currentFocus = (x.length - 1);
+    /*add class "autocomplete-active":*/
+    x[currentFocus].classList.add("autocomplete-active");
+  }
+  function removeActive(x) {
+    /*a function to remove the "active" class from all autocomplete items:*/
+    for (var i = 0; i < x.length; i++) {
+      x[i].classList.remove("autocomplete-active");
+    }
+  }
+  function closeAllLists(elmnt) {
+    /*close all autocomplete lists in the document,
+    except the one passed as an argument:*/
+    var x = document.getElementsByClassName("autocomplete-items");
+    for (var i = 0; i < x.length; i++) {
+      if (elmnt != x[i] && elmnt != inp) {
+        x[i].parentNode.removeChild(x[i]);
+      }
+    }
+  }
+  /*execute a function when someone clicks in the document:*/
+  document.addEventListener("click", function (e) {
+      closeAllLists(e.target);
+  });
+}
+  var parts = JSON.parse('<%- partsArray %>');
+  autocompleteOne(document.getElementById("myInput"), parts);
+
+
+   </script>
+   <script>
+       $(document).ready(function(){
+      /*****Fixed Menu******/
+      var secondaryNav = $('.cd-secondary-nav'),
+         secondaryNavTopPosition = secondaryNav.offset().top;
+        $(window).on('scroll', function(){
+          if($(window).scrollTop() > secondaryNavTopPosition ) {
+            secondaryNav.addClass('is-fixed');	
+          } else {
+            secondaryNav.removeClass('is-fixed');
+          }
+        });	
+        
+    });
+    window.addEventListener('load', (event) => {
+      let form = document.querySelector('#partSearch');
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        input = document.querySelector('#myInput');
+        input.value = input.value.trim();
+        form.submit();
+      })
+    })
+    </script>
+  <script>
+    function removeCartItem(id){
+      const cartItemsString = localStorage.getItem('cart');
+      if (cartItemsString) {
+	      const cartItems = JSON.parse(cartItemsString);
+        if(cartItems.length === 1){
+          cartItems.splice(-1, 1);
+        }else{
+
+          cartItems.splice(id-1, 1);
+        }
+        const updatedCartItemsString = JSON.stringify(cartItems);
+        localStorage.setItem('cart', updatedCartItemsString);
+		    showCart();
+  }
+    }
+    function showCart() {
+	  const cartItemsString = localStorage.getItem('cart');
+	  if (cartItemsString) {
+     const cartItems = JSON.parse(cartItemsString);
+     if(cartItems.length !== 0 ){
+      let cartCounter = document.querySelector('#cart-counter');
+      cartCounter.innerText = cartItems.length
+       let cart = document.querySelector('#cartList');
+       let cartBody = document.createElement('div');
+       cartBody.classList.add('scrollable-cart-body');
+       cart.innerHTML = '';
+	  let cartHeader = document.createElement('div');
+	  cartHeader.classList.add('drop_1i', 'clearfix');
+	  let cartFooter = document.createElement('div');
+	  cartFooter.classList.add('drop_1i3', 'text-center', 'clearfix');
+	  cartHeader.innerHTML = `<div class="col-sm-6"><div class="drop_1il clearfix"><h5 class="mgt">${cartItems.length} ITEMS</h5></div></div><div class="col-sm-6"><div class="drop_1il text-right clearfix"><h5 class="mgt"><a href='/view-cart'>VIEW CART</a></h5></div></div>`;
+	  cartFooter.innerHTML = `<div class="col-sm-12"><h5><a class="button_1 block" href="#">CHECKOUT</a></h5><h5><a class="button block" href='/view-cart'>VIEW CART</a></h5></div>`;
+    
+    let cartTotal = document.createElement('div');
+    cartTotal.classList.add('drop_1i2', 'clearfix');
+    
+    let totalAmount = 0;
+    
+	  cart.appendChild(cartHeader);
+	  cart.appendChild(cartBody);
+    cartItems.forEach(item => {
+      let cartItem = document.createElement('div');
+      cartItem.classList.add('drop_1i1', 'clearfix');
+      cartItem.innerHTML = `<div class="col-sm-8"><div class="drop_1i1l clearfix"><h6 class="mgt bold"><a href="#">${item.name}</a> <br> <span class="normal col_2">${item.qty}x - AED ${item.price}</span> <br> <span><i class="fa fa-remove" onclick="removeCartItem(${item.id})"></i></span></h6></div></div><div class="col-sm-4"><div class="drop_1i1r text-right clearfix"><a href="#"><img src="${item.url}" class="iw" alt="abc"></a></div></div>`;
+      totalAmount += (parseFloat(item.qty) * parseFloat(item.price))
+    cartBody.appendChild(cartItem);
+  });
+  cartTotal.innerHTML = ` <div class="col-sm-6"><div class="drop_1il clearfix"><h5 class="mgt">TOTAL</h5></div></div><div class="col-sm-6"><div class="drop_1il text-right clearfix"><h5 class="mgt">AED ${totalAmount}</h5></div></div>`
+	  cart.appendChild(cartTotal);
+    cart.appendChild(cartFooter);
+  }else{
+    let cartCounter = document.querySelector('#cart-counter');
+      cartCounter.innerText = '';
+    let cart = document.querySelector('#cartList');
+	  cart.innerHTML = '<p style="margin: 0px 0px 0px 80px;color: #ea1c26; font-weight: bold;">Cart is Empty!</p>';  
+  }
+	  } else {
+      let cartCounter = document.querySelector('#cart-counter');
+      cartCounter.innerText = ''
+	  let cart = document.querySelector('#cartList');
+	  cart.innerHTML = '<p style="margin: 0px 0px 0px 80px;color: #ea1c26; font-weight: bold;">Cart is Empty!</p>';
+	  }
+	}
+  showCart()
+  </script>

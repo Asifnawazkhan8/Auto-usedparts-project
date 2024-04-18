@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>All Cars - Qasr Al Hasna Used Cars and Spare Parts LLC</title>
+	<meta name="description" content="Explore our wide selection of quality used car parts for various makes and models at Qasr Al Hasna Used Cars and Spare Parts LLC. Find affordable and reliable spare parts for your car today.">
+	<meta name="keywords" content="used car parts, spare parts, spare parts sharjah, spare parts UAE, highlander parts, sienna parts, second-hand car parts, affordable car parts.">
+	<meta property="og:title" content="All Products - Qasr Al Hasna Used Cars and Spare Parts LLC">
+	<meta property="og:description" content="Explore our wide selection of quality used car parts for various makes and models at Qasr Al Hasna Used Cars and Spare Parts LLC. Find affordable and reliable spare parts for your car today.">
+	<meta property="og:url" content="https://www.qasralhasna.ae/all-products">
+	<meta property="og:image" content="https://www.qasralhasna.ae/assets/2.jpg">
+	<meta name="twitter:title" content="All Products - Qasr Al Hasna Used Cars and Spare Parts LLC">
+	<meta name="twitter:description" content="Explore our wide selection of quality used car parts for various makes and models at Qasr Al Hasna Used Cars and Spare Parts LLC. Find affordable and reliable spare parts for your car today.">
+	<meta name="twitter:image" content="https://www.qasralhasna.ae/assets/2.jpg">
+	<meta name="twitter:card" content="summary_large_image">
+	<link href="/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/css/global.css" rel="stylesheet">
+	<link href="/css/shop.css" rel="stylesheet">
+</head>
+     
+    <body>
+      <section id="top">
+        <div class="container">
+          <div class="row">
+            <div class="top_1 clearfix">
+              <div class="col-sm-3">
+                <div class="top_1l clearfix">
+                  <p class="mgt small">Welcome to our store!</p>
+                </div>
+              </div>
+              <div class="col-sm-7">
+                <div class="top_1r clearfix">
+                  <ul class="nav navbar-nav nav_1 mgt navbar-right">
+                    <li class="dropdown bord_l">
+                      <a class="font_tag border_none" href="#" data-toggle="dropdown" role="button"
+                        aria-expanded="false">English<span class="caret"></span></a>
+                      <ul class="dropdown-menu drop_1" role="menu">
+                        <li><a href="#"><i class="fa fa-flag"></i> English</a></li>
+                        <li><a href="#"><i class="fa fa-flag"></i> Arabic</a></li>
+                      </ul>
+                    </li>
+                    <!-- <li id="userDisplayName" style="margin-left: 15px; color: black;"><a></a></li> -->
+                  </ul>
+                </div>
+              </div>
+              <div class="col-sm-2">
+                <div class="top_1r clearfix">
+                  <ul class="nav navbar-nav nav_1 mgt navbar-right">
+                    <li id="userDisplayName" class="dropdown bord_l" style="display: block;">
+                      <a class="font_tag border_none" href="#" data-toggle="dropdown" role="button" aria-expanded="false">
+                        <span id="loggedInUserName">Admin</span><span class="caret"></span>
+                      </a>
+                      <ul class="dropdown-menu drop_1" role="menu">
+                        <li><a href="#" onclick="logout()"><i class=""></i> Logout</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div> 
+        </div>
+      </section>
+    </section>
+    <section id="header">
+      <div class="container">
+        <div class="row">
+          <div class="header_1 clearfix">
+            <div class="col-sm-4">
+              <div class="header_1l clearfix">
+                <h2 class="mgt"><a href="/"><span class="col_1">Qasr AL</span> Hasna</a></h2>
+                <p>We have been dealing in spare parts since 90's</p>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="header_1m clearfix">
+                <form id="carSearch" class="input-group" action="/search" method="post">
+                  <div class="autocomplete" style="width: 100%; margin-top: 6px;">
+                    <input class="form-control" id="myInput" name="searchQuery" placeholder="Search" autocomplete="off" required>
+                  </div>
+                  <span class="input-group-btn">
+                    <input class="btn btn-primary" type="submit" value="Search" />
+                  </span>
+                </form>
+                <div id="noResultsMessage" style="display: none; color: red;">
+                  No matching results found.
+                </div>
+                
+                <!-- Add a container for displaying search results -->
+                <div id="searchResultsContainer"></div>
+                
+                <script>
+                  document.getElementById("carSearch").addEventListener("submit", function (e) {
+                    // Get the search query value
+                    var searchQuery = document.getElementById("myInput").value.trim();
+                
+                    // Check if the search query is empty
+                    if (searchQuery === "") {
+                      e.preventDefault();
+                      document.getElementById("noResultsMessage").innerText = "Please enter a search query.";
+                      document.getElementById("noResultsMessage").style.display = "block";
+                    } else {
+                      // Use Fetch API to send a POST request to the server
+                      fetch("/search", {
+                        method: "POST",
+                        headers: {
+                          "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({ searchQuery: searchQuery }),
+                      })
+                        .then(response => response.json())
+                        .then(data => {
+                          if (data && data.length > 0) {
+                            // Display the search results in the container
+                            displaySearchResults(data);
+                            console.log('Search results found:', data);
+                          } else {
+                            e.preventDefault();
+                            document.getElementById("noResultsMessage").innerText = "No matching results found.";
+                            document.getElementById("noResultsMessage").style.display = "block";
+                            console.error('No matching results found.');
+                          }
+                        })
+                        .catch(error => {
+                          console.error("Error:", error);
+                        });
+                    }
+                  });
+                
+                  function displaySearchResults(results) {
+                    var resultsContainer = document.getElementById("searchResultsContainer");
+                    // Clear previous results
+                    resultsContainer.innerHTML = "";
+                
+                    // Create an unordered list
+                    var resultList = document.createElement("ul");
+                
+                    // Populate the list with search results (for example, displaying car models)
+                    results.forEach(result => {
+                      var listItem = document.createElement("li");
+                      listItem.textContent = result.model; // Change this property based on your data structure
+                      resultList.appendChild(listItem);
+                    });
+                
+                    // Append the list to the container
+                    resultsContainer.appendChild(resultList);
+                  }
+                </script>
+                
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+	   
+    <section id="menu" class="clearfix cd-secondary-nav">
+        <nav class="navbar nav_t">
+            <div class="container">
+                <div class="navbar-header page-scroll">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/"><span class="col_1">Qasr Al</span> Hasna</a>
+                </div>
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+
+                        <li><a class="m_tag " href="/">Home</a></li>
+                        <li><a class="m_tag" href="/all-products">Products</a></li>
+                        <li><a class="m_tag active_tab" href="/cars">Cars</a></li>
+                        <li><a class="m_tag" href="/about-us">About Us</a></li>
+                        <li><a class="m_tag" href="/contact-us">Contact Us</a></li>
+                        
+                                                
+                    
+
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+
+    </section>
+
+    <section id="shop">
+      <div class="container">
+        <div class="row">
+          <div class="shop_1 clearfix">
+            <div class="col-sm-3">
+              <div class="shop_1lm clearfix">
+                <div class="product_1l clearfix">
+                  <h4 class="mgt">CATEGORIES</h4>
+                  <hr>
+                  <!-- Add your category links here -->
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-9">
+              <div class="product_1rm clearfix">
+                <div class="sell_o_1 clearfix">
+                 
+                  <div class="row">
+                    <% cars.forEach(car => { %>
+                      <div class="col-sm-4 margin-top">
+                        <div class="blog_home_1 clearfix">
+                          <div class="blog_home_1i clearfix">
+                            <a href="/car-details/<%= encodeURIComponent(car.model) %>">
+                              <img src="<%= car.images[0] %>" class="iw" alt="<%= car.model %>" style="width: 100%; height: auto; padding: 3px; margin: 2px; margin-top: 10px; margin-bottom: 10px;"/>
+                              <script>
+                                console.log('Image Path:', '<%= car.images[0] %>');
+                              </script>
+                            </a>
+                            <h8 style="color: red;"><%= car.model %></h8>
+                            <p style="font-size: 15px;">Colour: <%= car.color %></p>
+                            <p style="color: green;">Call for price</p>
+                          </div>
+                        </div>
+                      </div>
+                    <% }); %>
+                  </div>
+                  
+                </div>
+              </div>
+              
+    
+                <%
+                  // Declare totalPages and currentPage here
+                  const totalPages = locals ? locals.totalPages : 0;
+                  const currentPage = locals ? locals.currentPage : 1;
+                  console.log('totalPages:', totalPages);
+                  console.log('currentPage:', currentPage);
+                %>
+
+            
+            <div style="background-color: brown;" class="text-center clearfix">
+              <ul style="list-style: none; padding: 0; color: aliceblue; display: flex; justify-content: center;">
+            
+                <% if (currentPage > 1) { %>
+                  <li style="color: black; margin-right: 5px;">
+                    <a style="color: black;" href="/cars?page=<%= currentPage - 1 %>">Prev</a>
+                  </li>
+                <% } %>
+            
+                <% for (let i = 1; i <= totalPages; i++) { %>
+                  <li style="color: black; margin-right: 5px;" class="<%= currentPage === i ? 'active' : '' %>">
+                    <a style="color: aliceblue;" href="/cars?page=<%= i %>"><%= i %></a>
+                  </li>
+                <% } %>
+            
+                <% if (currentPage < totalPages) { %>
+                  <li style="color: black; margin-left: 5px;">
+                    <a style="color: black;" href="/cars?page=<%= currentPage + 1 %>">Next</a>
+                  </li>
+                <% } %>
+            
+              </ul>
+            </div>
+            
+        
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/652ea6d0a84dd54dc4822ae0/1hcv792eq';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+</body>
+ 
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>All Products - Qasr Al Hasna Used Cars and Spare Parts LLC</title>
+	<meta name="description" content="Explore our wide selection of quality used car parts for various makes and models at Qasr Al Hasna Used Cars and Spare Parts LLC. Find affordable and reliable spare parts for your car today.">
+	<meta name="keywords" content="used car parts, spare parts, spare parts sharjah, spare parts UAE, highlander parts, sienna parts, second-hand car parts, affordable car parts.">
+	<meta property="og:title" content="All Products - Qasr Al Hasna Used Cars and Spare Parts LLC">
+	<meta property="og:description" content="Explore our wide selection of quality used car parts for various makes and models at Qasr Al Hasna Used Cars and Spare Parts LLC. Find affordable and reliable spare parts for your car today.">
+	<meta property="og:url" content="https://www.qasralhasna.ae/all-products">
+	<meta property="og:image" content="https://www.qasralhasna.ae/assets/2.jpg">
+	<meta name="twitter:title" content="All Products - Qasr Al Hasna Used Cars and Spare Parts LLC">
+	<meta name="twitter:description" content="Explore our wide selection of quality used car parts for various makes and models at Qasr Al Hasna Used Cars and Spare Parts LLC. Find affordable and reliable spare parts for your car today.">
+	<meta name="twitter:image" content="https://www.qasralhasna.ae/assets/2.jpg">
+	<meta name="twitter:card" content="summary_large_image">
+	<link href="/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/css/global.css" rel="stylesheet">
+	<link href="/css/shop.css" rel="stylesheet">
+<%- include('common/header');%>
+
+<section id="menu" class="clearfix cd-secondary-nav">
+			<nav class="navbar nav_t">
+				<div class="container">
+					<div class="navbar-header page-scroll">
+						<button type="button" class="navbar-toggle" data-toggle="collapse"
+							data-target="#bs-example-navbar-collapse-1">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="/"><span class="col_1">Qasr Al</span> Hasna</a>
+					</div>
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav">
+
+							<li><a class="m_tag" href="/">Home</a></li>
+							<li><a class="m_tag active_tab" href="/all-products">Products</a></li>
+							<li><a class="m_tag" href="/cars">Cars</a></li>
+							<li><a class="m_tag" href="/about-us">About Us</a></li>
+							<li><a class="m_tag" href="/contact-us">Contact Us</a></li>
+							
+							
+						</ul>
+
+					</div>
+					<!-- /.navbar-collapse -->
+				</div>
+				<!-- /.container-fluid -->
+			</nav>
+
+		</section>
+
+<section id="center" class="clearfix center_shop">
+			<div class="container">
+				<div class="row">
+					<div class="center_shop_1 clearfix">
+						<div class="col-sm-6">
+							<div class="center_shop_1l clearfix">
+								<h3 class="mgt">Catalogue - Page <%= currPage %></h3>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="center_shop_1r text-right clearfix">
+								<h5><a class="col_2" href="/">Home</a>/ <span style="text-transform: capitalize;"><%= url.slice(url.lastIndexOf('/') + 1) %></span></h5>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+<section id="shop">
+	<div class="container">
+		<div class="row">
+			<div class="shop_1 clearfix">
+				<div class="col-sm-3">
+					<div class="shop_1lm clearfix">
+						<div class="product_1l clearfix">
+						<h4 class="mgt">CATEGORIES</h4><hr>
+						<h5><a class="<%= url.slice(url.lastIndexOf('/') + 1) === 'headlights' ? 'clicked-link' : '' %>" href="/category/headlights">Headlights </a></h5>
+						<h5><a class="<%= url.slice(url.lastIndexOf('/') + 1) === 'bumpers' ? 'clicked-link' : '' %>" href="/category/bumpers">Bumpers </a></h5>
+						<h5><a class="<%= url.slice(url.lastIndexOf('/') + 1) === 'engine' ? 'clicked-link' : '' %>" href="/category/engine">Engine Parts </a></h5>
+						<h5><a class="<%= url.slice(url.lastIndexOf('/') + 1) === 'doors' ? 'clicked-link' : '' %>" href="/category/doors">Doors </a></h5>
+						<h5><a class="<%= url.slice(url.lastIndexOf('/') + 1) === 'radars' ? 'clicked-link' : '' %>" href="/category/radars">Radars </a></h5>
+						<h5><a class="<%= url.slice(url.lastIndexOf('/') + 1) === 'fenders' ? 'clicked-link' : '' %>" href="/category/fenders">Fenders </a></h5>
+						<h5><a class="<%= url.slice(url.lastIndexOf('/') + 1) === 'mirrors' ? 'clicked-link' : '' %>" href="/category/mirrors">Mirrors </a></h5>
+						<h5><a class="<%= url.slice(url.lastIndexOf('/') + 1) === 'electrical' ? 'clicked-link' : '' %>" href="/category/electrical">Electrical Parts </a></h5>
+					</div>
+					<div class="product_1l clearfix">
+						<h4 class="mgt">SELECT BY VEHICLE</h4><hr>
+						<h5><a class="<%= url.slice(url.lastIndexOf('/') + 1) === 'sienna' ? 'clicked-link' : '' %>" href="/vehicle/sienna">Toyota Sienna </a></h5>
+						<h5><a class="<%= url.slice(url.lastIndexOf('/') + 1) === 'rav4' ? 'clicked-link' : '' %>" href="/vehicle/rav4">Toyota Rav4 </a></h5>
+						<h5><a class="<%= url.slice(url.lastIndexOf('/') + 1) === 'tacoma' ? 'clicked-link' : '' %>" href="/vehicle/tacoma">Toyota Tacoma </a></h5>
+						<h5><a class="<%= url.slice(url.lastIndexOf('/') + 1) === 'highlander' ? 'clicked-link' : '' %>" href="/vehicle/highlander">Toyota Highlander </a></h5>
+						<h5><a class="<%= url.slice(url.lastIndexOf('/') + 1) === 'rx350' ? 'clicked-link' : '' %>" href="/vehicle/rx350">Lexus RX 350 </a></h5>
+						<h5><a class="<%= url.slice(url.lastIndexOf('/') + 1) === 'nx' ? 'clicked-link' : '' %>" href="/vehicle/nx">Lexus NX (<%= vehiclesCount.nx300%>)</a></h5>
+					</div>
+				</div>
+			</div>
+		<div class="col-sm-9">
+			<div class="product_1rm clearfix">
+				<% var outerLoopIterations = Math.ceil(parts.length / 3); %>
+				<% for (let i = 0; i < outerLoopIterations; i++){%>
+			<div class="sell_o_1 clearfix">
+				<% var startIndex = i * 3; %>
+				<% var endIndex = Math.min(startIndex + 3, parts.length); %>
+				<% for (let j = startIndex; j < endIndex; j++){%>
+			<div class="col-sm-4">
+				<div class="arriv_2m clearfix">
+					<div class="arriv_2m1 clearfix">
+						<a href="/product-details/<%= parts[j].alias %>"">
+							<img src="<%= parts[j].url1 %>" alt="abc" class="iw">
+							<!-- <% if (parts[j].fromDirectory) { %>
+								<!-- <img src="<%= parts[j].imagePath %>" alt="abc" class="iw"> -->
+							<!-- <% } else { %>
+								
+							<% } %> --> -->
+						</a>
+					
+					</div>
+					<div class="arriv_2m3 clearfix">
+						<h4 class="bold mgt"><a href="/product-details/<%= parts[j].alias %>"><%= parts[j].name %></a></h4>
+						<p><a href="/product-details/<%= parts[j].alias %>"> <%= `${parts[j].name}` %></a></p>
+						<span class="span_1"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span>
+						
+					</div>
+					<!-- <a href="/login"><button style="background-color: rgb(24, 117, 65);" class="btn btn-primary">Edit</button></a><a href="/login"><button style="background-color: darkred; margin-left: 40%;" class="btn btn-primary">Delete</button></a> -->
+				</div>
+			</div>
+			<% } %>
+		</div>
+		<% } %>
+		<div class="product_1_last text-center clearfix">
+			<div class="col-sm-12">
+				<ul> 
+
+					<li><a href="<%= url %>/page/<%= prePage %>"><i class="fa fa-chevron-left"></i></a></li>
+					<% if (currPage > 1) { %>
+						<% if (currPage == 1 ) { %>
+							<li><a href="<%= url %>"><%= currPage %></a></li>
+						<% } else { %>
+							<li><a href="<%= url %>/page/<%= prePage %>"><%= prePage %></a></li>
+						<% } %>
+					<% } %>
+					<li class="act"><span><%= currPage %></span></li>
+					<% if (totalPages > currPage ) { %>
+					<li><a href="<%= url %>/page/<%= nextPage %>"><%= nextPage %></a></li>
+					<% if ( totalPages > currPage + 1 ) { %>
+					<li><a href="<%= url %>/page/<%= nextNextPage %>"><%= nextNextPage %></a></li>
+					<% } %>
+					<li><a href="<%= url %>/page/<%= nextPage %>"><i class="fa fa-chevron-right"></i></a></li>
+					<% } %>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+	var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+	(function(){
+	var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+	s1.async=true;
+	s1.src='https://embed.tawk.to/652ea6d0a84dd54dc4822ae0/1hcv792eq';
+	s1.charset='UTF-8';
+	s1.setAttribute('crossorigin','*');
+	s0.parentNode.insertBefore(s1,s0);
+	})();
+	</script>
+	<!--End of Tawk.to Script-->
+
+<%- include('common/footer');%>
+
+
+
+</body>
+
+</html>

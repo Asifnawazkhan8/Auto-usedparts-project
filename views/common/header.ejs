@@ -1,0 +1,176 @@
+<link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css" />
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
+<script src="/js/jquery-2.1.1.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/favicons/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/favicons/android-chrome-192x192.png">
+<link rel="icon" type="image/png" sizes="512x512"  href="/favicons/android-chrome-512x512.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicons/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/favicons/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<style>
+  .input_style{
+    margin-left: 10px;
+outline: none;
+border: none;
+background-color: #efefef;
+  }
+
+  .autocomplete {
+position: relative;
+display: inline-block;
+}
+
+input {
+border: 1px solid transparent;
+background-color: #f1f1f1;
+padding: 5px;
+font-size: 16px;
+}
+
+.autocomplete-items {
+position: absolute;
+border: 1px solid #d4d4d4;
+border-bottom: none;
+border-top: none;
+z-index: 99;
+/*position the autocomplete items to be the same width as the container:*/
+top: 100%;
+left: 0;
+right: 0;
+}
+
+.autocomplete-items div {
+padding: 10px;
+cursor: pointer;
+background-color: #fff; 
+border-bottom: 1px solid #d4d4d4; 
+font-size: 17px;
+}
+
+/*when hovering an item:*/
+.autocomplete-items div:hover, .autocomplete-items div:hover a {
+background-color: #ea1c26; 
+color: #ffffff; 
+}
+
+
+/*when navigating through the items using the arrow keys:*/
+.autocomplete-active {
+background-color: #ea1c26 !important; 
+color: #ffffff; 
+}
+</style>
+</head>
+  
+<body>
+<section id="top">
+  <div class="container">
+    <div class="row">
+      <div class="top_1 clearfix">
+        <div class="col-sm-3">
+          <div class="top_1l clearfix">
+            <p class="mgt small">Welcome to our store!</p>
+          </div>
+        </div>
+        <div class="col-sm-9">
+          <div class="top_1r clearfix">
+
+             
+              </li>
+            </ul>
+            <ul class="nav navbar-nav nav_1 mgt navbar-right">
+              <li class="dropdown bord_l">
+                <a class="font_tag border_none" href="#" data-toggle="dropdown" role="button"
+                  aria-expanded="false">English<span class="caret"></span></a>
+                <ul class="dropdown-menu drop_1" role="menu">
+                  
+                  <li><a href="#"><i class="fa fa-flag"></i> English</a></li>
+                  <li><a href="#"><i class="fa fa-flag"></i> Arabic</a></li>   
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</section>
+<section id="header">
+  <div class="container">
+    <div class="row">
+      <div class="header_1 clearfix">
+      
+        <div class="col-sm-4">
+          
+          <div class="header_1l clearfix">
+            <h2 class="mgt"><a href="/"><span class="col_1">Qasr AL</span> Hasna</a></h2>
+            <p>We have been dealing in spare parts since 90's</p>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="header_1m clearfix">
+            <form id="partSearch" class="input-group" action="/search" method="post">
+              <div class="autocomplete" style="width: 100%; margin-top: 6px;">
+                <input class="form-control" id="myInput" name="searchQuery" placeholder="Search" autocomplete="off" required>
+              </div>
+              <input type="hidden" class="form-control" name="_csrf" value="<%= csrfToken %>" />
+              <span class="input-group-btn">
+                <input class="btn btn-primary" type="submit" value="Search"/>
+              </span>
+            </form>
+            <div id="noResultsMessage" style="display: none; color: red;">
+              No matching results found.
+            </div>
+          </div>          
+            <script>
+            if (noResults) {
+            res.render('your_search_page', { noResults: true });
+            } else {
+            res.render('your_search_page', { results: searchResults });
+            }
+          document.getElementById("partSearch").addEventListener("submit", function (e) {
+          if (noResults) {
+          e.preventDefault(); // Prevent the form from submitting
+          document.getElementById("noResultsMessage").style.display = "block"; // Show the error message
+          }
+        });
+
+            </script>
+          </div>
+        </div>
+        <div class="header_1r clearfix">
+          <ul class="nav navbar-nav mgt navbar-right">
+            <li><a class="tag_m1" href="/login"><i class="fa fa-user">
+              <p style="font-size: 10px; margin-left: -8px;">Admin</p>
+            </i></a></li>
+            <li class="dropdown"><a class="tag_m1" href="#" data-toggle="dropdown" role="button" aria-expanded="false">
+              <!-- <span id="cart-counter" style="position: absolute;z-index: 9999;font-size: 15px;top: 6px;right: 7px;">1</span><i class="glyphicon glyphicon-shopping-cart" onclick="showCart()"></i></a> -->
+              <ul class="dropdown-menu drop_1" role="menu">
+                <li id="cartList">
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+</body>
+</html>

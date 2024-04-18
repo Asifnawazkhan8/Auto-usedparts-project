@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= car.model %> - Qasr Al Hasna Used Cars and Spare Parts LLC</title>
+	<meta name="description" content="Discover detailed information about the <%= car.model %> with Year <%= car.year %> at Qasr Al Hasna Used Cars and Spare Parts LLC. We offer high-quality used car parts for various makes and models.">
+	<meta name="keywords" content="product details, <%= car.model %>, <%= car.year %>, used car parts, spare parts, high-quality car parts, affordable car parts">
+	<link rel="canonical" href="https://www.qasralhasna.ae/car-details/<%= car.model %>">
+	<meta property="og:title" content="<%= car.model %> - Qasr Al Hasna Used Cars and Spare Parts LLC">
+	<meta property="og:description" content="Discover detailed information about the <%= car.model %> with Year <%= car.year %> at Qasr Al Hasna Used Cars and Spare Parts LLC. We offer high-quality used car parts for various makes and models.">
+	<meta property="og:url" content="https://www.qasralhasna.ae/car-details/<%= car.model %>">
+	<meta property="og:image" content="https://www.qasralhasna.ae<%= car.images[0] %>">
+	<meta name="twitter:title" content="<%= car.model %> - Qasr Al Hasna Used Cars and Spare Parts LLC">
+	<meta name="twitter:description" content="Discover detailed information about the <%= car.model %> with Year <%= car.year %> at Qasr Al Hasna Used Cars and Spare Parts LLC. We offer high-quality used car parts for various makes and models.">
+	<meta name="twitter:image" content="https://www.qasralhasna.ae<%= car.images[0] %>">
+	<meta name="twitter:card" content="summary_large_image">
+	<link href="/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/css/global.css" rel="stylesheet">
+	<link href="/css/detail.css" rel="stylesheet">
+
+<%- include('common/header');%>
+<style>
+	img{
+		display: flex;
+		flex: 1;
+	}
+</style>
+
+<section id="menu" class="clearfix cd-secondary-nav">
+	<nav class="navbar nav_t">
+		<div class="container">
+		    <div class="navbar-header page-scroll">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/"><span class="col_1">Qasr Al</span> Hasna</a>
+			</div>
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+				
+				<li><a class="m_tag" href="/">Home</a></li>
+				<li><a class="m_tag " href="/all-products">Products</a></li>
+				<li><a class="m_tag active_tab" href="/cars">Cars</a></li>
+				<li><a class="m_tag" href="/about-us">About Us</a></li>
+				<li><a class="m_tag" href="/contact-us">Contact Us</a></li>
+				
+			</ul>
+		    	
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+		<!-- /.container-fluid -->
+	</nav>
+	
+	</section>
+	
+<section id="center" class="clearfix center_shop">
+<div class="container">
+ <div class="row">
+   <div class="center_shop_1 clearfix">
+    <div class="col-sm-6">
+	 <div class="center_shop_1l clearfix">
+	  <h3 class="mgt">Product Details</h3>
+	 </div>
+	</div>
+	<div class="col-sm-6">
+	 <div class="center_shop_1r text-right clearfix">
+	  <h5><a class="col_2" href="/">Home</a><a class="col_2" style="text-transform: capitalize;" href="<%= baseUrl %>"><%= url %></a> <span><%= car.model %></span></h5>
+	 </div>
+	</div>
+   </div>
+ </div>
+</div>
+</section>
+<section id="shop_detail">
+<div class="container">
+ <div class="row">
+   <div class="shop_detail_1 clearfix">
+    <div class="col-sm-6">
+	 <div class="center_detail_2_left clearfix">
+		<div class="carousel slide article-slide" id="article-photo-carousel">
+
+		  <!-- Wrapper for slides -->
+		  <div class="carousel-inner cont-slider">
+			<% car.images.forEach((image, index) => { %>
+			  <div class="item <%= index === 0 ? 'active' : '' %>">
+				<div class="mag">
+				  <div class="magnify">
+					<div class="magnify">
+					  <img data-toggle="magnify" src="/<%= image %>" alt="">
+					  <div class="magnify-large" style="background: url(&quot;/public/img/54.jpg&quot;) no-repeat;">
+					  </div>
+					</div>
+					<div class="magnify-large">
+					</div>
+				  </div>
+				</div>
+			  </div>
+			<% }); %>
+		  </div>
+		  
+		  <!-- Add a spacer between carousel and indicators -->
+		  <div class="spacer"></div>
+		  
+		  <!-- Indicators -->
+		  
+		  <div style="height: 160px; margin-top: 10px;">
+			<ol class="carousel-indicators">
+				<% car.images.forEach((image, index) => { %>
+				  <li class="<%= index === 0 ? 'active' : '' %>" data-slide-to="<%= index %>" data-target="#article-photo-carousel">
+					<img alt="" src="/<%= image %>">
+				  </li>
+				<% }); %>
+			  </ol>
+		</div>
+        </div>
+		 </div>
+	
+	</div>
+	
+	<div class="col-sm-6">
+	 <div class="center_detail_2_right clearfix">
+		 <h3 class="mgt"> <%= car.model %></h3>
+		 <h5 class="col_1">
+			 <i class="fa fa-star"></i>
+			 <i class="fa fa-star"></i>
+			 <i class="fa fa-star"></i>
+			 <i class="fa fa-star"></i>
+			 <i class="fa fa-star-o"></i>
+		</h5>
+		<p><%= car.des %></p>
+		<hr>
+		<h4 style="margin-bottom: 50px;">Availability: <span style="font-size: 20px; margin-left: 20px;">In Stock</span></h4>
+		 
+		 
+		 
+    </div>
+	</div>
+   </div>
+ </div>
+</div>
+</section>
+
+<section style="margin-top: 100px;" id="sell_n">
+ <div class="container">
+  <div class="row">
+      <div class="sell_1_o clearfix">
+            <div class="col-sm-5 space_left sell_1_ol">
+               <h2 class="mgt">Related Cars</h2>
+			   <hr>
+            </div>
+            <div class="col-sm-7 space_left">
+                <!-- Controls -->
+               <div class="clearfix sell_1_or text-right">
+			    
+			   </div>
+            </div>
+        </div>
+	  <div class="sell_o_1 clearfix">
+		<% relatedCars.forEach(item => { %>
+			<div class="col-sm-3 space_left">
+				<div class="arriv_2m clearfix">
+					<div class="arriv_2m1 clearfix">
+						<a href="/car-details/<%= car.model %>"><img src="/<%= car.images[0] %>" alt="abc" class="iw"></a>
+					</div>
+					<div class="arriv_2m2 clearfix">
+						<h5 class="text-center mgt">New</h5>
+					</div>
+							  <div class="arriv_2m2n clearfix">
+							   <h5 class="text-center mgt">Sale</h5>
+							</div>
+							<div class="arriv_2m3 clearfix">
+								<h4 class="bold mgt"><a href="/car-details/<%= car.model %>"><%= item.model %></a></h4>
+								<p><a href="/car-details/<%= item.model %>"><%= car.model %></a></p>
+							   <span class="span_1">
+								   <i class="fa fa-star"></i>
+								   <i class="fa fa-star"></i>
+								   <i class="fa fa-star"></i>
+								   <i class="fa fa-star"></i>
+								   <i class="fa fa-star"></i>
+								</span>
+								
+							</div>
+						</div>
+			</div>
+			<% })%>
+                </div>
+			</div> 
+		</div>
+	</section>
+
+
+	
+<script>
+	let model = '<%= car.model %>';
+	let year = '<%= car.year %>';
+	let url = '<%= car.images[0] %>';
+	function addToCart() {
+		let qty = parseInt(document.querySelector('#qty').value);
+		
+		// Retrieve existing cart items from localStorage
+		const cartItemsString = localStorage.getItem('cart');
+	  let cartItems = [];
+	
+	  if (cartItemsString) {
+		  cartItems = JSON.parse(cartItemsString);
+		}
+		
+		// Check if the item already exists in the cart
+		const existingItem = cartItems.find(item => item.partCode === partCode);
+		
+		if (existingItem) {
+			// Item already exists, update the quantity
+			existingItem.qty += qty;
+		} else {
+			// Item doesn't exist, add it to the cart
+			cartItems.push({ id: cartItems.length + 1, name, price, partCode, qty, url });
+		}
+		
+		// Convert the cart items array to a string
+		const updatedCartItemsString = JSON.stringify(cartItems);
+		
+		// Store the updated cart items string in localStorage
+		localStorage.setItem('cart', updatedCartItemsString);
+		showCart();
+	}
+	
+	
+	</script> 
+<script>
+	
+	!function ($) {
+		
+		"use strict"; // jshint ;_;
+		
+		
+		/* MAGNIFY PUBLIC CLASS DEFINITION
+		* =============================== */
+		
+		var Magnify = function (element, options) {
+			this.init('magnify', element, options)
+		}
+		
+		Magnify.prototype = {
+			
+			constructor: Magnify
+
+			, init: function (type, element, options) {
+				var event = 'mousemove'
+                , eventOut = 'mouseleave';
+				
+				this.type = type
+				this.$element = $(element)
+				this.options = this.getOptions(options)
+				this.nativeWidth = 0
+				this.nativeHeight = 0
+				
+				this.$element.wrap('<div class="magnify" \>');
+					this.$element.parent('.magnify').append('<div class="magnify-large" \>');
+						this.$element.siblings(".magnify-large").css("background","url('" + this.$element.attr("src") + "') no-repeat");
+						
+            this.$element.parent('.magnify').on(event + '.' + this.type, $.proxy(this.check, this));
+            this.$element.parent('.magnify').on(eventOut + '.' + this.type, $.proxy(this.check, this));
+        }
+
+        , getOptions: function (options) {
+			options = $.extend({}, $.fn[this.type].defaults, options, this.$element.data())
+			
+            if (options.delay && typeof options.delay == 'number') {
+				options.delay = {
+					show: options.delay
+                    , hide: options.delay
+                }
+            }
+			
+            return options
+        }
+		
+        , check: function (e) {
+			var container = $(e.currentTarget);
+            var self = container.children('img');
+            var mag = container.children(".magnify-large");
+			
+            // Get the native dimensions of the image
+            if(!this.nativeWidth && !this.nativeHeight) {
+				var image = new Image();
+                image.src = self.attr("src");
+				
+                this.nativeWidth = image.width;
+                this.nativeHeight = image.height;
+
+            } else {
+				
+				var magnifyOffset = container.offset();
+                var mx = e.pageX - magnifyOffset.left;
+                var my = e.pageY - magnifyOffset.top;
+
+                if (mx < container.width() && my < container.height() && mx > 0 && my > 0) {
+					mag.fadeIn(100);
+                } else {
+					mag.fadeOut(100);
+                }
+				
+                if(mag.is(":visible"))
+                {
+					var rx = Math.round(mx/container.width()*this.nativeWidth - mag.width()/2)*-1;
+                    var ry = Math.round(my/container.height()*this.nativeHeight - mag.height()/2)*-1;
+                    var bgp = rx + "px " + ry + "px";
+					
+                    var px = mx - mag.width()/2;
+                    var py = my - mag.height()/2;
+					
+                    mag.css({left: px, top: py, backgroundPosition: bgp});
+                }
+            }
+			
+        }
+    }
+
+	
+    /* MAGNIFY PLUGIN DEFINITION
+	* ========================= */
+	
+    $.fn.magnify = function ( option ) {
+		return this.each(function () {
+			var $this = $(this)
+			, data = $this.data('magnify')
+			, options = typeof option == 'object' && option
+            if (!data) $this.data('tooltip', (data = new Magnify(this, options)))
+            if (typeof option == 'string') data[option]()
+        })
+    }
+	
+    $.fn.magnify.Constructor = Magnify
+	
+    $.fn.magnify.defaults = {
+        delay: 0
+    }
+	
+	
+    /* MAGNIFY DATA-API
+	* ================ */
+	
+    $(window).on('load', function () {
+		$('[data-toggle="magnify"]').each(function () {
+			var $mag = $(this);
+            $mag.magnify()
+        })
+    })
+	
+} ( window.jQuery );
+</script>
+
+<script>
+	$(document).on('click', '.number-spinner button', function () {    
+		var btn = $(this),
+		oldValue = btn.closest('.number-spinner').find('input').val().trim(),
+		newVal = 0;
+		
+		if (btn.attr('data-dir') == 'up') {
+			newVal = parseInt(oldValue) + 1;
+		} else {
+			if (oldValue > 1) {
+				newVal = parseInt(oldValue) - 1;
+			} else {
+				newVal = 1;
+			}
+		}
+		btn.closest('.number-spinner').find('input').val(newVal);
+	});
+	</script>
+
+<script type="text/javascript">
+	var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+	(function(){
+	var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+	s1.async=true;
+	s1.src='https://embed.tawk.to/652ea6d0a84dd54dc4822ae0/1hcv3n85k';
+	s1.charset='UTF-8';
+	s1.setAttribute('crossorigin','*');
+	s0.parentNode.insertBefore(s1,s0);
+	})();
+	</script>
+
+</body>
+
+</html>

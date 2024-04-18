@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Search Result for <%= result %> - Qasr Al Hasna Used Cars and Spare Parts LLC</title>
+	<meta name="description" content="Learn about Qasr Al Hasna Used Cars and Spare Parts LLC - a leading supplier of quality used car parts for various makes and models. Discover our history, mission, and commitment to providing affordable and reliable spare parts.">
+	<meta name="description" content="Qasr Al Hasna Used Cars and Spare Parts LLC offers a wide selection of quality used car parts for various makes and models. Find the parts you need at affordable prices.">
+	<meta name="keywords" content="used car parts, spare parts, spare parts sharjah, spare parts UAE, highlander parts, sienna parts, second-hand car parts, affordable car parts">
+	<link rel="canonical" href="https://www.qasralhasna.ae/search" />
+	<meta property="og:title" content="Qasr Al Hasna Used Cars and Spare Parts LLC - Quality Used Car Parts">
+	<meta property="og:description" content="Qasr Al Hasna Used Cars and Spare Parts LLC offers a wide selection of quality used car parts for various makes and models. Find the parts you need at affordable prices.">
+	<meta property="og:url" content="https://www.qasralhasna.ae/">
+	<meta property="og:image" content="https://www.qasralhasna.ae<%= parts[0].url1 %>">
+	<meta name="twitter:title" content="Qasr Al Hasna Used Cars and Spare Parts LLC - Quality Used Car Parts">
+	<meta name="twitter:description" content="Qasr Al Hasna Used Cars and Spare Parts LLC offers a wide selection of quality used car parts for various makes and models. Find the parts you need at affordable prices.">
+	<meta name="twitter:image" content="https://www.qasralhasna.ae<%= parts[0].url1 %>">
+	<meta name="twitter:card" content="summary_large_image">
+	<link href="/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/css/global.css" rel="stylesheet">
+	<link href="/css/shop.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css" />
+	<link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
+	<script src="/js/jquery-2.1.1.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<%- include('common/header');%>
+
+<section id="menu" class="clearfix cd-secondary-nav">
+			<nav class="navbar nav_t">
+				<div class="container">
+					<div class="navbar-header page-scroll">
+						<button type="button" class="navbar-toggle" data-toggle="collapse"
+							data-target="#bs-example-navbar-collapse-1">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="/"><span class="col_1">Qasr Al</span> Hasna</a>
+					</div>
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav">
+
+							<li><a class="m_tag" href="/">Home</a></li>
+							<li><a class="m_tag active_tab" href="/all-products">Products</a></li>
+							<li><a class="m_tag" href="/about-us">About Us</a></li>
+							<li><a class="m_tag" href="/contact-us">Contact Us</a></li>
+						</ul>
+					</div>
+					<!-- /.navbar-collapse -->
+				</div>
+				<!-- /.container-fluid -->
+			</nav>
+
+		</section>
+
+<section id="center" class="clearfix center_shop">
+			<div class="container">
+				<div class="row">
+					<div class="center_shop_1 clearfix">
+						<div class="col-sm-6">
+							<div class="center_shop_1l clearfix">
+								<h3 class="mgt">"Search Result for <%= result %>"</h3>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="center_shop_1r text-right clearfix">
+								<h5><a class="col_2" href="/">Home</a> / <span><%= parts[0].name [0] %></span></h5>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+<section id="shop">
+	<div class="container">
+		<div class="row">
+			<div class="shop_1 clearfix">
+		<div class="col-sm-9">
+			<div class="product_1rm clearfix">
+				<% var outerLoopIterations = Math.ceil(parts.length / 3); %>
+				<% for (let i = 0; i < outerLoopIterations; i++){%>
+			<div class="sell_o_1 clearfix">
+				<% var startIndex = i * 3; %>
+				<% var endIndex = Math.min(startIndex + 3, parts.length); %>
+				<% for (let j = startIndex; j < endIndex; j++){%>
+			<div class="col-sm-4">
+				<div class="arriv_2m clearfix">
+					<div class="arriv_2m1 clearfix">
+						<a href="/product-details/<%= parts[j].alias %>"><img src="<%= parts[j].url1 %>" alt="<%= parts[j].name%> Picture" class="iw"></a>
+					</div>
+					<div class="arriv_2m3 clearfix">
+						<h4 class="bold mgt"><a href="/product-details/<%= parts[j].alias %>"><%= parts[j].name %></a></h4>
+						<p><a href="/product-details/<%= parts[j].alias %>"><%= `${parts[j].name}` %></a></p>
+						<span class="span_1"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span>
+						<!-- <h3 class="normal h3-size"><span class="span_2">AED 45.00</span><span class="span_3 col_1"> AED 34.00</span></h3> -->
+					</div>
+				</div>
+			</div>
+			<% } %>
+		</div>
+		<% } %>
+	</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<%- include('common/footer');%>
+
+
+</body>
+
+</html>
